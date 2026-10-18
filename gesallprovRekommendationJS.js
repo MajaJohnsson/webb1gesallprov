@@ -18,29 +18,42 @@ function getRandomizeBookRec() {
 //undra om man kan få någon form av animering när svaret kommer fram
 
 const bookWithGenre = [
-    "The Last Bookshop in London - Madeline Martin, Historia",
+    "The Last Bookshop in London - Madeline Martin, Romans",
     "And Then There Were None - Agatha Christie, Deckare",
-    "The Secret History - Donna Tartt, Roman",
+    "The Secret History - Donna Tartt, Fiktion",
     "When We Were Orphans - Kazugo Ishiguro, Deckare",
-    "The Princess Bride - William Goldman, Romans"
+    "Night - Elie Wiesel, Biografi",
+    "The Song of Achilles - Madeline Miller, Romans",
+    "And the Mountains Echoed - Khaled Hosseini, Fiktion",
+    "The Little Shop of Happy Ever After - Jenny Colgan, Romans",
+    "A House in the Sky - Sara Corbett, Biografi"
 ];
 
-function getBookByGenre() {
+function getBookByGenre(genre) {
 
     let booksResult = [];
 
     for (let i = 0; i < bookWithGenre.length; i++) {
-
-        if (bookWithGenre[i].match("Historia") != null) {
-            let result = bookWithGenre[i].match(/Historia/);
-            booksResult.push(result);
-            console.log(result);
-            document.getElementById("answerRandomBookRec").innerHTML = result;   
-        } else {
-            document.getElementById("answerRandomBookRec").innerHTML = "Inget resultat hittades!";
+        if (bookWithGenre[i].match(/Deckare/) != null) {
+            let result = bookWithGenre[i].match(/Deckare/);
+            booksResult.push(result.input);
         }
-
     }
 
-    //for loop med alla object i booksresult
+    if (booksResult.length >= 0) {
+        let length = booksResult.length;
+        //length - 1 för att den ska börja vid det första elementet i listan, dvs 0
+        let number = Math.floor(Math.random() * length - 1) + 1;
+        document.getElementById("answerRandomBookRec").innerHTML = booksResult[number];   
+    } else {
+        document.getElementById("answerRandomBookRec").innerHTML = "Ojdå, ingen bok hittades";   
+    }
+}
+
+function getGenre() {
+    let genre = prompt("Skriv in den genre på bok du letar efter!");
+
+    if (genre != null) {
+        getBookByGenre(genre);
+    }
 }
