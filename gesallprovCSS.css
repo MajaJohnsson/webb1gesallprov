@@ -120,6 +120,10 @@ button:active {
     text-align: center;
 }
 
+prompt {
+    
+}
+
 /*För desktop*/
 body {
     min-width: 1200px;
