@@ -1,0 +1,333 @@
+@font-face {
+    font-family: "nedladdadFont";
+    src: url(ShortStack-Regular.ttf) format("truetype");
+}
+
+/*innan länken klickas*/
+a:link {
+    color: black;
+}
+
+/*när länken klickas*/
+a:active {
+    cursor: progress;
+}
+
+/*efter länken klickas*/
+a:visited {
+    color: darkorchid;
+}
+
+/*när musen "hovrar" över länken*/
+a:hover {
+    cursor: pointer;
+    color: darkorchid;
+}
+
+img {
+    float: left;
+    margin-right: 1em;
+}
+
+h1, h2, h3 {
+    clear: both;
+}
+
+.nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav ul li {
+    float: left;
+    padding-right: 2em;
+}
+
+.nav ul li a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    background: #FFD8B2;
+    padding: 5px 20px;
+    font: 16px "nedladdadFont", "Times New Roman";
+    border-radius: 15%;
+}
+
+.nav ul li a:hover:not(.active) {
+    background: #FFFFFF;
+}
+
+/* FUNGERAR INTE*/
+.nav ul li a.active {
+    background: #FFFFFF;
+    
+}
+
+/*färgsättning för alla skärmar*/
+body {
+    background: #e6ddff fixed center border-box;
+}
+
+header {
+    background: #FFFFFF fixed center border-box;
+}
+
+nav {
+    background: #FFD8B2 fixed center border-box;
+}
+
+main {
+    background: #FFFFFF fixed center border-box;
+    border: 2px solid #FFD8B2
+}
+
+section {
+    background: #FFFFFF fixed center border-box;
+}
+
+aside {
+    background: #C8E6FF fixed center border-box;
+}
+
+footer {
+    background: #FFD8B2 fixed center border-box;
+}
+
+button {
+    background-color: #C8E6FF;
+    border-radius: 5%;
+    border: 1px solid #7ebaeb;
+    padding: 2%;
+    font-family: "nedladdadFont", "Times New Roman";
+    
+}
+
+button:active {
+    background-color: #7ebaeb;
+}
+
+#buttonsForBookRec {
+    text-align: center;
+    padding: 2%;
+}
+
+#answerRandomBookRec {
+    padding-top: 10%;
+}
+
+.mainRekommendation {
+    text-align: center;
+}
+
+/*För desktop*/
+body {
+    min-width: 1200px;
+    margin: auto;
+    /*Ändra?*/
+    padding: 1em;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1em;
+
+    font: 16px "nedladdadFont", "Times New Roman";
+    }
+
+    header {
+        min-height: 200px;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        font-size: large;
+        letter-spacing: 2px;
+
+    }
+    
+    nav {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    
+    main {
+        letter-spacing: 2px;
+    }
+
+    
+    section {
+        letter-spacing: 2px;
+    }
+    
+    aside {
+        line-height: 2;
+    }
+    
+    footer {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+
+/*flödande för desktop 1200px-1024px*/
+/*kanske ska lägga till min-width*/
+@media only screen and (max-width:1200px) {
+
+    body {
+        min-width: 1024px;
+        margin: auto;
+        /*Ändra?*/
+        padding: 0.5em;
+    
+        display: grid;
+        /*kan ändra så att det bara är indelat i två kolumner istället för tre*/
+        grid-template-columns: 3fr 2fr;
+        gap: 0.5em;
+
+        }
+
+    
+    header {
+        /*ska det vara px?*/
+        min-height: 200px;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        letter-spacing: 2px;
+
+    }
+    
+    nav {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    
+    main {
+        letter-spacing: 2px;
+    }
+    
+    section {
+        letter-spacing: 2px;
+    }
+    
+    aside {
+        line-height: 2;
+    }
+    
+    footer {
+        grid-column: 1;
+        grid-column-end: 3;
+    }
+    
+    }
+
+/*För plattor*/
+/*flödande för plattor*/
+@media only screen and (max-width:1024px) {
+
+    body {
+        min-width: 480px;
+        margin: auto;
+        /*Ändra?*/
+        padding: 0.5em;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 0.5em;
+        
+}
+    
+    header {
+        /*ska det vara px?*/
+        grid-column-start: 1;
+        grid-column-end: 3;
+        /*max-height: 10%;*/
+        font-size: 1em;
+
+    }
+    
+    nav {
+        font-size: 0.9em;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    
+    main {
+        font-size: 0.9em;
+    }
+    
+    section {
+        font-size: 0.9em;
+    }
+    
+    aside {
+        font-size: 0.9em;
+        line-height: 200%;
+    }
+    
+    footer {
+        font-size: 0.8em;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    }
+
+/*För mobiler*/
+/*flödande för mobiler*/
+@media only screen and (max-width:480px) {
+
+    body {
+        margin: auto;
+        /*Ändra?*/
+        padding: 0.5em;
+    
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5em;
+}
+    
+    header {
+        /*ska det vara px?*/
+        min-height: 100px;
+        /*grid-column-start: 1;*/
+        /*grid-column-end: 1;*/
+        font-size: 0.8em;
+
+    }
+    
+    nav {
+        font-size: 0.8em;
+    }
+    
+    main {
+        font-size: 0.8em;
+    }
+    
+    section {
+        font-size: 0.8em;
+    }
+    
+    aside {
+        font-size: 0.8em;
+        line-height: 150%;
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+    
+    footer {
+        /*grid-column: 1;*/
+        /*grid-column-end: 1;*/
+        font-size: 0.8em;
+    }
+    }
+
+/*För mobiler*/
+/*fixerad för mobiler under 100px*/
+@media only screen and (max-width:100px) {
+    body {
+    margin: auto;
+    /*Ändra?*/
+    padding: 0.5em;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+
+    }
+}

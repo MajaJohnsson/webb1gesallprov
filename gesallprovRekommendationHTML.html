@@ -1,0 +1,87 @@
+<!-- sammanfattad information om en själv-->
+
+<!doctype html>
+
+<html>  
+
+<head>
+
+   <link rel="stylesheet" type="text/css" href="gesallprovCSS.css?rnd=12345"/>
+   <script src="gesallprovRekommendationJS.js" defer></script>
+
+    <!-- <meta name="application-name"> -->
+
+    <meta name="author" content="Maja Johnsson">
+
+    <meta name="description" content="Detta är en sida för hem">
+
+    <meta name="generator" content="">
+    <!-- OPS vet ikke, FIXA-->
+
+    <meta name="keywords" content="HTML, hemsida, SU">
+    <!-- OPS vet inte vilka ord man ska skriva :) -->
+
+    <!--<meta content=""> -->
+
+    <meta charset="utf-8">
+
+<title>hem</title>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Hemsida start</h1>
+        <h2>Här kan du få bokrekommendation</h2>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li>
+                <a href="gesallprovStartHTML.html"><pre>Start</pre></a>
+            </li>
+            <li>
+                <a href="gesallprovRekommendationHTML.html"><pre>Rekommendationer</pre></a>
+            </li>
+            <li>
+                <a href="gesallprovRecensionerHTML.html"><pre>Recensioner</pre></a>
+            </li>
+            <li>
+                <a href="gesallprovGissaBokenHTML.html"><pre>Gissa boken!</pre></a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <main class="mainRekommendation">
+
+        <section id="buttonsForBookRec">
+            <p>Nedan finns två alternativ, anting får du en slumpmässig bok eller så kan du själv klicka i vad du vill ha</p>
+            <br>
+            <button id="bookRecommendationSuprise" onclick="getRandomizeBookRec()">Överaska mig!</button>
+            <button id="bookRecommendationSuprise" onclick="getBookByGenre()">Jag vill välja själv</button>
+        </section>
+
+        <p id="answerRandomBookRec"></p>
+
+
+    </main>
+
+    <aside>
+
+        <blockquote cite="https://www.goodreads.com/book/show/242091855-allt-det-bl-p-himlen">
+            <q>Tjugosexåriga Émile har drabbats av en tidig demens-sjukdom och förväntas bara ha två år kvar att leva. I stället för att 
+                tillbringa resten av sitt liv instängd på sjukhuset bestämmer han sig för att bryta sig loss och 
+                åka på en sista resa. - Allt det blå på himlen, Mélissa Da Costa</q>
+        </blockquote>
+
+    </aside>
+
+    <footer>
+        <p>Footer - tillbaka till toppen kanske?</p>
+    </footer>
+
+</body>
+
+</html>
