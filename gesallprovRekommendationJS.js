@@ -47,7 +47,6 @@ function getBookByGenre(genre) {
         let number = Math.floor(Math.random() * length - 1) + 1;
         document.getElementById("answerRandomBookRec").innerHTML = booksResult[number];   
     } else {
-        //console.log(booksResult);
         document.getElementById("answerRandomBookRec").innerHTML = "Ojdå, ingen bok hittades";   
     }
 }
@@ -71,43 +70,44 @@ function hidePrompt() {
     prompt.close();
 }
 
-
-cd
 if (!window.indexedDB) {
     alert("Något gick fel vid IndexedDB");
 }
-
-const request = window.indexedDB.open("Books", 1);
 
 let database;
 
 let objectStore;
 
-request.onsuccess = function (event) {
-    database = event.target.result;
-}
+window.onload = function createDatabase() {
+    const request = window.indexedDB.open("Books", 1);
 
-request.onupgradeneeded = function (event) {
-    database = event.target.result;
+    request.onsuccess = function (event) {
+        database = event.target.result;
+    }
 
-    objectStore = database.createObjectStore("book");
+    request.onupgradeneeded = function (event) {
+        database = event.target.result;
 
-    objectStore.createIndex("title", "title");
-    objectStore.createIndex("author", "author");
-    objectStore.createIndex("genre", "genre");
+        objectStore = database.createObjectStore("book", {keyPath: "title"});
+
+        objectStore.createIndex("title", "title");
+        objectStore.createIndex("author", "author");
+        objectStore.createIndex("genre", "genre");
+
+        objectStore.transaction.oncomplete = function () {
+            addBooks();
+        }   
+    }
 
 }
 
 function addBooks() {
-    console.log(database);
-    console.log([...database.objectStoreNames]);
     const transaction = database.transaction("book", "readwrite");
-    //console.log([...database.objectStoreNames]);
 
     objectStore = transaction.objectStore("book");
 
-    for (let i = 0; i < bookWithGenres; i++){
-        objectStore.add(bookWithGenrea[i]);
+    for (let book of bookWithGenres) {
+        objectStore.add(book);
     }
 }
 
@@ -122,5 +122,3 @@ const bookWithGenres = [
     {title: "The Little Shop of Happy Ever After", author: "Jenny Colgan", genre: "romans"},
     {title: "A House in the Sky", author: "Sara Corbett", genre: "biografi"}
 ];
-
-addBooks(bookWithGenres);
