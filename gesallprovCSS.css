@@ -120,8 +120,11 @@ button:active {
     text-align: center;
 }
 
-prompt {
-    
+#prompt {
+    background-color: beige;
+    border: 1px solid #7ebaeb;
+    text-align: center;
+    padding: 5%;
 }
 
 /*För desktop*/
