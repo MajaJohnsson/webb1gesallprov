@@ -65,14 +65,21 @@
 
         <p id="answerRandomBookRec"></p>
 
+        <section>
+            <!--kanske kan göra en animation med något som rör sig fram och tillbaka längst ner på sidan-->
+
+        </section>
+
 
     </main>
 
     <dialog id="prompt"> 
         <p>Skriv in den genre på bok du letar efter!</p>
         <input type="text" id="bookGenre"> <br><br>
-        <button id=okAnwser onclick="getGenre()">Ok</button>
-        <button id=cancelAnwser onclick="hidePrompt()">Avbryt</button>
+        <div id="divPromptButton">
+            <button id=okAnwser onclick="getGenre()">Ok</button>
+            <button id=cancelAnwser onclick="hidePrompt()">Avbryt</button>
+        </div>
     
     </dialog>
 
@@ -83,6 +90,11 @@
                 tillbringa resten av sitt liv instängd på sjukhuset bestämmer han sig för att bryta sig loss och 
                 åka på en sista resa. - Allt det blå på himlen, Mélissa Da Costa</q>
         </blockquote>
+
+        <section>
+            <button id="addRecommendationBtn">Lägg till en rekommendation!</button>
+            <!--använd ett formulär-->
+        </section>
 
     </aside>
 

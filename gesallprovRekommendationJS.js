@@ -71,10 +71,56 @@ function hidePrompt() {
     prompt.close();
 }
 
+
+cd
 if (!window.indexedDB) {
     alert("Något gick fel vid IndexedDB");
 }
 
-const database = window.indexedDB.open("Books", 1);
+const request = window.indexedDB.open("Books", 1);
 
+let database;
 
+let objectStore;
+
+request.onsuccess = function (event) {
+    database = event.target.result;
+}
+
+request.onupgradeneeded = function (event) {
+    database = event.target.result;
+
+    objectStore = database.createObjectStore("book");
+
+    objectStore.createIndex("title", "title");
+    objectStore.createIndex("author", "author");
+    objectStore.createIndex("genre", "genre");
+
+}
+
+function addBooks() {
+    console.log(database);
+    console.log([...database.objectStoreNames]);
+    const transaction = database.transaction("book", "readwrite");
+    //console.log([...database.objectStoreNames]);
+
+    objectStore = transaction.objectStore("book");
+
+    for (let i = 0; i < bookWithGenres; i++){
+        objectStore.add(bookWithGenrea[i]);
+    }
+}
+
+const bookWithGenres = [
+    {title: "The Last Bookshop in London", author: "Madeline Martin", genre: "romans"},
+    {title: "And Then There Were None", author: "Agatha Christie", genre: "deckare"},
+    {title: "The Secret History", author: "Donna Tartt", genre: "fiktion"},
+    {title: "When We Were Orphans", author: "Kazugo Ishiguro", genre: "deckare"},
+    {title: "Night", author: "Elie Wiesel", genre: "biografi"},
+    {title: "The Song of Achilles", author: "Madeline Miller", genre: "romans"},
+    {title: "And the Mountains Echoed", author: "Khaled Hosseini", genre: "fiktion"},
+    {title: "The Little Shop of Happy Ever After", author: "Jenny Colgan", genre: "romans"},
+    {title: "A House in the Sky", author: "Sara Corbett", genre: "biografi"}
+];
+
+addBooks(bookWithGenres);

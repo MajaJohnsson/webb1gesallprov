@@ -121,10 +121,30 @@ button:active {
 }
 
 #prompt {
-    background-color: beige;
-    border: 1px solid #7ebaeb;
+    background-color: #e6ddff;
+    border: 2px solid grey;
+    border-radius: 5%;
+    box-shadow: 4px 4px gainsboro;
     text-align: center;
     padding: 5%;
+}
+
+#prompt p{
+    padding-bottom: 4%;
+}
+
+/*kanske kan sätta fokusläge på rutan*/
+#prompt input{
+    padding: 1%;
+}
+
+#divPromptButton {
+    padding-top: 5%;
+}
+
+#divPromptButton button {
+    padding: 4%;
+    padding-right: 5%;
 }
 
 /*För desktop*/
@@ -156,6 +176,7 @@ body {
     }
     
     main {
+        min-height: 800px;
         letter-spacing: 2px;
     }
 
