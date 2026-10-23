@@ -128,70 +128,29 @@ function addAllBooks() {
     }
 }
 
-let foundBooks = [];
-
 //"hämta ut" alla böcker
 async function getAllBooks() {
-    /*
     let foundBooks = [];
     
-    let request = database.transaction("book").objectStore("book").getAll();
+    //AI användes för att göra den synkron med new Promise + resolve, så att den hinner hämta alla böcker innan den returnerar
+    return new Promise((resolve, reject) => {
+        let request = database.transaction("book").objectStore("book").getAll();
 
-    let books;
+        let books;
 
-    request.onsuccess = function () {
-            
-        books = request.result;
+        request.onsuccess = function () {
+                
+            books = request.result;
 
-        //console.log(books);
+            for (let book of books) {
+                foundBooks.push(book);
+            }
+            console.log(foundBooks);
 
-        for (let book of books) {
-            foundBooks.push(book);
+            resolve(foundBooks);
         }
-        console.log(foundBooks);
-
-        //return foundBooks;
-
-        //asynkront, hinner inte hämta alla
-        //return foundBooks;
-
-        return foundBooks;
-    }
-    */
-
-    //returnAllBooks();
-
-    //async function returnAllBooks() {
-        //await getBooksFromDatabase();
-        //console.log(foundBooks);
-    //request.oncomplete = function () {
-        //return foundBooks;
-    //}
-    //}
-
-    let books = await getDataFromDatabase();
-
-    return books;
-
+    });
 }
-
-function getDataFromDatabase() {
-    
-    let request = database.transaction("book").objectStore("book").getAll();
-
-    let books;
-
-    request.onsuccess = function () {
-            
-        books = request.result;
-
-        for (let book of books) {
-            foundBooks.push(book);
-        }
-        console.log(foundBooks);
-    }
-}
-
 
 //hämtar ut böcker beroende på genre
 function getBooksByGenre(genre) {
@@ -317,7 +276,7 @@ const bookWithGenres = [
     {title: "And Then There Were None", author: "Agatha Christie", genre: "deckare", clue: "Tio främlingar på en isolerad ö, där någon döljer en mörk hemlighet och ingen går säker"},
     {title: "The Secret History", author: "Donna Tartt", genre: "fiktion", clue: "En grupp elitstudenter dras in i en värld av besatthet, hemligheter och ett mord som förändrar allt"},
     {title: "When We Were Orphans", author: "Kazugo Ishiguro", genre: "deckare", clue: "En detektiv återvänder till sitt förfluta för att lösa mysteriet kring sina föräldrars försvinnande"},
-    {title: "Night", author: "Elie Wiesel", genre: "biografi"},
+    {title: "Night", author: "Elie Wiesel", genre: "biografi", clue: "En gripande och personlig berättelse om överlevnad och mänsklig uthållighet under Förintelsen"},
     {title: "The Song of Achilles", author: "Madeline Miller", genre: "romans", clue: "Grekisk mytologi och myterna om Troja får ett nytt sken och berättas ur en annan vinkel"},
     {title: "And the Mountains Echoed", author: "Khaled Hosseini", genre: "fiktion", clue: "Ett syskonpars separation får konsekvenser som sträcker sig över generationer och formar liv långt bortom deras egen"},
     {title: "The Little Shop of Happy Ever After", author: "Jenny Colgan", genre: "romans", clue: "En kvinna lämnar sitt gamla liv bakom sig för att en ny början i en liten bokhandel"},

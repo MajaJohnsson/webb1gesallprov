@@ -62,7 +62,7 @@
 
         <section>
 
-            <button id="startGameBtn" onclick="chooseBook()">Starta spelet!</button>
+            <button id="startGameBtn" onclick="startGame()">Starta spelet!</button>
             
             <ul>
                 <li>
@@ -74,10 +74,16 @@
                 <li>
                     <p id="clueThree"></p>
                 </li>
+                <li>
+                    <p id="clueFour"></p>
+                </li>
             </ul>
         </section>
 
-        <p id="anwser"></p>
+        <p id="anwser"></p><br>
+
+        <input type="text" id="guessInput" placeholder="Skriv din gissning här!"><br><br>
+        <button id="guessBtn" onclick="guessBook()">Gissa!</button>
 
     </main>
 
