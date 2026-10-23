@@ -61,8 +61,9 @@ h1, h2, h3 {
 /* FUNGERAR INTE*/
 .nav ul li a.active {
     background: #FFFFFF;
-    
 }
+
+
 
 /*färgsättning för alla skärmar*/
 body {
@@ -121,30 +122,30 @@ button:active {
 }
 
 #prompt {
-    background-color: #e6ddff;
-    border: 2px solid grey;
-    border-radius: 5%;
-    box-shadow: 4px 4px gainsboro;
+    background-color: beige;
+    border: 1px solid #7ebaeb;
     text-align: center;
     padding: 5%;
 }
 
-#prompt p{
-    padding-bottom: 4%;
+form {
+    padding: 5%;
+    
 }
 
-/*kanske kan sätta fokusläge på rutan*/
-#prompt input{
+form input {
+    font-family: "nedladdadFont", "Times New Roman";
     padding: 1%;
 }
 
-#divPromptButton {
-    padding-top: 5%;
+input:focus {
+    background-color: #FFD8B2;
 }
 
-#divPromptButton button {
-    padding: 4%;
-    padding-right: 5%;
+
+/*vet ej, kolla igenom*/
+section {
+    text-align: center;
 }
 
 /*För desktop*/
@@ -176,7 +177,6 @@ body {
     }
     
     main {
-        min-height: 800px;
         letter-spacing: 2px;
     }
 
