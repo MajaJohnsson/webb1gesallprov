@@ -9,6 +9,9 @@
    <link rel="stylesheet" type="text/css" href="gesallprovCSS.css?rnd=12345"/>
    <script src="gesallprovRekommendationJS.js" defer></script>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
     <!-- <meta name="application-name"> -->
 
     <meta name="author" content="Maja Johnsson">
@@ -44,9 +47,9 @@
             <li>
                 <a href="gesallprovRekommendationHTML.html"><pre>Rekommendationer</pre></a>
             </li>
-            <li>
+            <!--<li>
                 <a href="gesallprovRecensionerHTML.html"><pre>Recensioner</pre></a>
-            </li>
+            </li> -->
             <li>
                 <a href="gesallprovGissaBokenHTML.html"><pre>Gissa boken!</pre></a>
             </li>
@@ -63,12 +66,9 @@
             <button id="bookRecommendationSuprise" onclick="showPrompt()">Jag vill välja själv</button>
         </section>
 
-        <p id="answerRandomBookRec"></p>
-
-        <section>
-            <!--kanske kan göra en animation med något som rör sig fram och tillbaka längst ner på sidan-->
-
-        </section>
+        <div id="animationBookRecAnwser">
+            <p id="answerRandomBookRec"></p>
+        </div>
 
 
     </main>
@@ -92,7 +92,9 @@
         </blockquote>
 
         <section>
-            <button id="addRecommendationBtn">Lägg till en rekommendation!</button>
+            <!--AI användes för att förstå hur man kan i onclick komma till en hemsida-->
+            <button id="addRecommendationBtn"
+            onclick="window.location.href='gesallprovForm.html'">Lägg till en rekommendation!</button>
             <!--använd ett formulär-->
         </section>
 
