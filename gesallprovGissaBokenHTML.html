@@ -8,6 +8,10 @@
 
    <link rel="stylesheet" type="text/css" href="gesallprovCSS.css?rnd=12345"/>
 
+    <script src="gesallprovRekommendationJS.js" defer></script>
+
+    <script src="gesallprovGissaBokenJS.js" defer></script>
+
     <!-- <meta name="application-name"> -->
 
     <meta name="author" content="Maja Johnsson">
@@ -31,8 +35,8 @@
 <body>
 
     <header>
-        <h1>Läsguiden</h1>
-        <h2>Om du hinner</h2>
+        <h1>Gissa boken!</h1>
+        <h2>Här finns ett litet minispel där du får möjligheten att genom ledtrådar gissa dig till en bok</h2>
     </header>
 
     <nav class="nav">
@@ -43,9 +47,9 @@
             <li>
                 <a href="gesallprovRekommendationHTML.html"><pre>Rekommendationer</pre></a>
             </li>
-            <li>
+            <!--<li>
                 <a href="gesallprovRecensionerHTML.html"><pre>Recensioner</pre></a>
-            </li>
+            </li> -->
             <li>
                 <a href="gesallprovGissaBokenHTML.html"><pre>Gissa boken!</pre></a>
             </li>
@@ -54,21 +58,31 @@
 
     <main>
 
-        <section>
-            <p>OBS om man hinner: Klickbar länk</p>
-        </section>
+       <h3>Vad kul att du vill prova gissa boken! Här nedan kommer din första ledtråd. Gissa på!</h3>
 
         <section>
-            <p>Bildspel med böcker</p>
+
+            <button id="startGameBtn" onclick="chooseBook()">Starta spelet!</button>
+            
+            <ul>
+                <li>
+                    <p id="clueOne"></p>
+                </li>
+                <li>
+                    <p id="clueTwo"></p>
+                </li>
+                <li>
+                    <p id="clueThree"></p>
+                </li>
+            </ul>
         </section>
+
+        <p id="anwser"></p>
 
     </main>
 
     <aside>
-
-        <section>
-            <p>Detta kan du hitta på denna webbsida:</p>
-        </section>
+        <p>Psst - om du inte kan det på första försöket, oroa dig inte! Ju fler försök du gör, ju fler ledtrådar kommer att dyka upp. Tänk dock på att du endast får tre ledtrådar. Men du hur många gissningar på dig som helst, så fortsätt gissa!</p>
 
     </aside>
 
