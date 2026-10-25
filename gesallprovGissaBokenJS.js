@@ -52,33 +52,53 @@ function guessBook() {
     }
 }
 
-//regex för att kolla hur många ord som matchar orginaltiteln, hur många utslag regex får i loopen genom titeln, kan lägga rätt ord i en lista
+//regex för att kolla hur många ord som matchar orginaltiteln
 function checkGuess() {
     let guess = document.getElementById("guessInput").value.trim().toLowerCase();
+    let guessArray = guess.split(" ");
+
+    console.log(guessArray);
+    
     let title = chosenBook.title.trim().toLowerCase();
     let matchCount = 0;
-    let match = title.match(/$"{guess}""/g);
+    let regex = new RegExp("\\b" + guess + "\\b", "g");
+    let matches = title.match(regex);
 
-    console.log(match);
-    //let regex = new RegExp(guess, "gi");
-    //let matches = title.match(regex);
-    //let matchCount = matches ? matches.length : 0;
-    //return matchCount;
+    //för att ett ord som förekommer flera gånger i texten endast ska gå genom regex en gång, läggs varje unikt ord i en ny lista
+    let list = [];
 
-    return match;
+    for (let g of guessArray) {
+        if (!list.includes(g)) {
+            list.push(g);
+        }
+    }
 
+    //det är endast exakta ord som ska matchas, därav av b, men ordet får förekomma flera gånger och ska då räknas, därav g
+    for (let l of list) {
+        let r = new RegExp("\\b" + l + "\\b", "g");
+        let rMatch = title.match(r);
+
+        if (rMatch) {
+           matchCount += rMatch.length; 
+        }
+    }
+
+    return matchCount;
 }
 
 //visa en ledtråd beroende på hur många gissningar personer har gjort
 function giveHint() {
-    if (countGuesses >= 0) {
+    if (countGuesses == 0) {
         document.getElementById("clueOne").innerHTML = checkGuess() + " ord matchar titeln";
     } else if (countGuesses == 1) {
         document.getElementById("clueTwo").innerHTML = chosenBook.clue;
+        document.getElementById("clueOne").innerHTML = checkGuess() + " ord matchar titeln";
     } else if (countGuesses >= 2) {
         document.getElementById("clueThree").innerHTML = chosenBook.genre;
+        document.getElementById("clueOne").innerHTML = checkGuess() + " ord matchar titeln";
     } else if (countGuesses >= 3) {
         document.getElementById("clueFour").innerHTML = chosenBook.author;
+        document.getElementById("clueOne").innerHTML = checkGuess() + " ord matchar titeln";
     }
 }
 
