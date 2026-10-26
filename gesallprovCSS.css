@@ -51,9 +51,10 @@ h1, h2, h3 {
     background: #FFD8B2;
     padding: 5px 20px;
     font: 16px "nedladdadFont", "Times New Roman";
-    border-radius: 15%;
+    /*border-radius: 15%;*/
 }
 
+/*så länge länken inte har active, gör detta*/
 .nav ul li a:hover:not(.active) {
     background: #FFFFFF;
 }
@@ -143,8 +144,12 @@ input:focus {
 }
 
 
-/*vet ej, kolla igenom*/
+/*vet ej, kolla igenom
 section {
+    text-align: center;
+} */
+
+#sectionGissaBoken {
     text-align: center;
 }
 
