@@ -1,0 +1,89 @@
+
+<!-- sammanfattad information om en själv-->
+
+<!doctype html>
+
+<html>  
+
+<head>
+
+   <link rel="stylesheet" type="text/css" href="gesallprovCSS.css?rnd=12345"/>
+   <script src="gesallprovRekommendationJS.js" defer></script>
+
+    <!-- <meta name="application-name"> -->
+
+    <meta name="author" content="Maja Johnsson">
+
+    <meta name="description" content="Detta är en sida för hem">
+
+    <meta name="generator" content="">
+    <!-- OPS vet ikke, FIXA-->
+
+    <meta name="keywords" content="HTML, hemsida, SU">
+    <!-- OPS vet inte vilka ord man ska skriva :) -->
+
+    <!--<meta content=""> -->
+
+    <meta charset="utf-8">
+
+<title>hem</title>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Hemsida formulär</h1>
+        <h2>Vad kul att du vill lägga till en bok till rekommendationer!</h2>
+    </header>
+
+    <!--<nav class="nav">
+        <ul>
+            <li>
+                <a href="gesallprovStartHTML.html"><pre>Start</pre></a>
+            </li>
+            <li>
+                <a href="gesallprovRekommendationHTML.html"><pre>Rekommendationer</pre></a>
+            </li>
+            <li>
+                <a href="gesallprovRecensionerHTML.html"><pre>Recensioner</pre></a>
+            </li>
+            <li>
+                <a href="gesallprovGissaBokenHTML.html"><pre>Gissa boken!</pre></a>
+            </li>
+        </ul>
+    </nav>-->
+
+
+    <main>
+
+        <button onclick="window.location.href='gesallprovRekommendationHTML.html'"><-- Tillbaka till föregående sida</button>
+
+        <!--lägga till pattern och begränsningar för vad användaren kan skriva, med felmeddelanden-->
+        <form>
+            <label for="title">Bokens titel:</label><br>
+            <input type="text" id="title" name="title" size="30" required autofocus><br><br>
+
+            <label for="author">Bokens författare:</label><br>
+            <input type="text" id="author" name="author" size="30" required><br><br>
+
+            <label for="genre">Bokens genre:</label><br>
+            <input type="text" id="genre" name="genre" size="30" required><br><br>
+
+            <input type="button" id="newBookSubmit" value="Skicka" onclick="addNewBookInDatabase()">
+
+        </form>
+
+    </main>
+
+    <aside>
+
+    </aside>
+
+    <footer>
+        <p>Footer - tillbaka till toppen kanske?</p>
+    </footer>
+
+</body>
+
+</html>
